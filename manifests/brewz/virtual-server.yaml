@@ -34,11 +34,11 @@ spec:
       action:
         pass: spa
     - path: /api
-      errorPages:
       policies:
         - name: rate-limit-policy
       action:
         pass: api
+      errorPages:
         - codes: [404]
           return:
             code: 404
@@ -47,7 +47,7 @@ spec:
               {\"msg\": \"Could not find the resource!\"}
             headers:
               - name: x-debug-original-status
-                value: ${upstream_status}s
+                value: ${upstream_status}
     - path: /api/inventory
       action:
         proxy:
