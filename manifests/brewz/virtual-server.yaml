@@ -34,11 +34,11 @@ spec:
       action:
         pass: spa
     - path: /api
+      errorPages:
       policies:
         - name: rate-limit-policy
       action:
         pass: api
-      errorPages:
         - codes: [404]
           return:
             code: 404
